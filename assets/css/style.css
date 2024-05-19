@@ -1,0 +1,222 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Creepster;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  display: grid;
+  grid-template-rows: 15vh 1fr 12vh;
+  grid-template-areas: "menu" "main" "footer";
+  margin: 0.2rem;
+  background-color: black;
+}
+main {
+  grid-area: main;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  padding: 0px;
+  margin: 0.2rem;
+  display: block;
+}
+
+.card {
+  border: thin solid rgba(231, 232, 236, 0.8);
+  margin: 0.8rem;
+  padding: 0.05rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/fondo7.jpg");
+}
+
+.card img {
+  width: 90vw;
+  padding: 1rem;
+  filter: grayscale(100%);
+}
+.card img:hover {
+  filter: grayscale(0%);
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  background-color: #f3f3f3;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+footer h5 {
+  margin: 0px;
+  padding: 0px;
+  color: black;
+}
+footer svg {
+  max-height: 6vh;
+}
+footer img {
+  max-height: 6vh;
+}
+
+.menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: #f3f3f3;
+  color: black;
+}
+.menu img {
+  max-width: 23vw;
+}
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  min-height: 15vh;
+  column-gap: 0.2rem;
+}
+.menu-list a {
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  width: 14vw;
+  color: black;
+  padding-top: 2rem;
+}
+.menu-list button:hover {
+  background-color: rgba(166, 8, 13, 0.8);
+}
+
+.creepster-regular {
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (min-width: 700px) {
+  body {
+    grid-template-rows: 1fr 15vh;
+    grid-template-areas: "menu main" "footer footer";
+  }
+
+  .card {
+    scroll-snap-align: center;
+    border-color: white;
+    animation: move 25s ease infinite alternate;
+  }
+  .card img {
+    height: 80vh;
+    max-width: 78vw;
+    width: auto;
+  }
+  .card img:hover {
+    height: 100vh;
+    filter: grayscale(0%);
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .carousel-container {
+    width: 78vw;
+    height: 97vh;
+    display: grid;
+    grid-template-columns: repeat(5, 80vw);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+  main {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20vw;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20vw;
+    position: fixed;
+  }
+  .menu img {
+    width: 20vw;
+  }
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20vw;
+  }
+  .menu-list a {
+    width: 100vw;
+    color: black;
+    max-width: 20vw;
+    height: 16vh;
+
+    text-align: center;
+    padding-top: 1rem;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  footer h5 {
+    text-align: center;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-103%);
+    }
+    50% {
+      transform: translateX(-206%);
+    }
+    75% {
+      transform: translateX(-309%);
+    }
+    100% {
+      transform: translateX(-412%);
+    }
+  }
+  /* .temp {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }*/
+}
